@@ -1,0 +1,22 @@
+.title {
+    -fx-font-size: 2em;
+}
+.images {
+    -fx-background-size: 50px;
+    -fx-background-position: center;
+    -fx-background-color: #f4f4f4;
+    -fx-background-repeat: no-repeat;
+    -fx-min-height: 50;
+    -fx-min-width: 50;
+}
+.profile {
+    -fx-background-image: url('../images/settings.png');
+}
+.matches {
+    -fx-background-image: url('../images/match.png');
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+}
+.anchor-pane {
+    -fx-min-height: 550;
+}

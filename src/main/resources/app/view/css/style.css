@@ -1,0 +1,6 @@
+.pane {
+    -fx-pref-width: 400;
+    -fx-pref-height: 600;
+    -fx-padding: 0 0 10 0;
+    -fx-alignment: center;
+}

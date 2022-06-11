@@ -14,6 +14,8 @@ public abstract class Api {
     @Value("${server.address}")
     private String SERVER_URI;
 
+    private static String authCookie;
+
     private final HttpClient client = HttpClient.newHttpClient();
     private final ObjectMapper mapper = new ObjectMapper();
 
@@ -47,10 +49,12 @@ public abstract class Api {
                 });
     }
 
-    public CompletableFuture<Integer> fetch(HttpRequest request) {
-        return client
-                .sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                .thenApply(HttpResponse::statusCode);
+    public CompletableFuture<HttpResponse<String>> fetch(HttpRequest request) {
+        return client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+    }
+
+    public static void setAuthCookie(String cookie) {
+        authCookie = cookie;
     }
 
     public String endpoint() {

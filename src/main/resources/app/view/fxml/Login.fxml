@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="app.view.controller.Login"
+      stylesheets="@../css/login.css, @../css/style.css"
+      styleClass="pane">
+    <Label styleClass="title">Dating for Desktop</Label>
+    <HBox alignment="CENTER" styleClass="images">
+        <ImageView pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/girl.png"/>
+        </ImageView>
+        <ImageView pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/boy.png"/>
+        </ImageView>
+    </HBox>
+    <VBox styleClass="container">
+        <Label text="Username"/>
+        <TextField fx:id="username"/>
+        <Label text="Password"/>
+        <TextField fx:id="password"/>
+    </VBox>
+    <Button onAction="#login" fx:id="loginButton" text="Log in" styleClass="button"/>
+    <Region VBox.vgrow="ALWAYS"/>
+    <Label fx:id="message" visible="false" styleClass="message"/>
+</VBox>

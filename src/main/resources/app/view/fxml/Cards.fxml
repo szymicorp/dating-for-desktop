@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.shape.Rectangle?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="app.view.controller.Cards"
+      stylesheets="@../css/cards.css, @../css/style.css">
+        <HBox alignment="CENTER">
+            <Button styleClass="profile, images"/>
+            <Text text="Dating for Desktop" styleClass="title"/>
+            <Button styleClass="matches, images"/>
+        </HBox>
+        <AnchorPane prefHeight="200" prefWidth="100" styleClass="anchor-pane">
+            <Rectangle fx:id="rect" height="200" width="100"/>
+        </AnchorPane>
+</VBox>

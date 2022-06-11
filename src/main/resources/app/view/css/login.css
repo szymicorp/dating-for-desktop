@@ -1,0 +1,28 @@
+.title {
+    -fx-font-size: 2.7em;
+    -fx-padding: 60 0 30 0;
+}
+.images {
+    -fx-padding: 0 0 30 0;
+}
+.container {
+    -fx-padding: 0 70 30 70;
+}
+.container > * {
+    -fx-padding: 10 0 10 0;
+    -fx-font-size: 1.2em;
+}
+.button {
+    -fx-pref-width: 80;
+    -fx-pref-height: 40;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}
+.message {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 5 10 5 10;
+    -fx-alignment: center;
+}
