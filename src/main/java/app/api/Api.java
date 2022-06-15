@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 
+import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -21,7 +22,7 @@ public abstract class Api {
 
     protected abstract String subPath();
 
-    public <T> CompletableFuture<T> fetch(HttpRequest request, Class<T> returnType) {
+    public <T> CompletableFuture<T> fetchAsync(HttpRequest request, Class<T> returnType) {
         return client
                 .sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
@@ -35,7 +36,7 @@ public abstract class Api {
                 });
     }
 
-    public <T> CompletableFuture<T> fetch(HttpRequest request, TypeReference<T> returnType) {
+    public <T> CompletableFuture<T> fetchAsync(HttpRequest request, TypeReference<T> returnType) {
         return client
                 .sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
@@ -49,12 +50,26 @@ public abstract class Api {
                 });
     }
 
-    public CompletableFuture<HttpResponse<String>> fetch(HttpRequest request) {
+    public CompletableFuture<HttpResponse<String>> fetchAsync(HttpRequest request) {
         return client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+    }
+
+    public <T> T fetch(HttpRequest request, TypeReference<T> returnType) throws IOException, InterruptedException {
+        var body =  client.send(request, HttpResponse.BodyHandlers.ofString()).body();
+        try {
+            return mapper.readValue(body, returnType);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void setAuthCookie(String cookie) {
         authCookie = cookie;
+    }
+
+    public static String getAuthCookie() {
+        return authCookie;
     }
 
     public String endpoint() {

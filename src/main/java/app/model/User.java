@@ -7,6 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class User {
     private int id;
@@ -17,9 +18,17 @@ public class User {
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
+    private List<String> photos;
     private boolean sex;
     private boolean premium;
     private int age;
+    private String bio;
+    private List<String> interests;
+    private double maxDistance;
+    private int minAge;
+    private int maxAge;
+    private boolean sexPreference;
+    private boolean publicProfile;
 
     public int getId() {
         return id;
@@ -61,6 +70,14 @@ public class User {
         this.birthDate = birthDate;
     }
 
+    public List<String> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<String> photos) {
+        this.photos = photos;
+    }
+
     public boolean isSex() {
         return sex;
     }
@@ -83,5 +100,61 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public List<String> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(List<String> interests) {
+        this.interests = interests;
+    }
+
+    public double getMaxDistance() {
+        return maxDistance;
+    }
+
+    public void setMaxDistance(double maxDistance) {
+        this.maxDistance = maxDistance;
+    }
+
+    public int getMinAge() {
+        return minAge;
+    }
+
+    public void setMinAge(int minAge) {
+        this.minAge = minAge;
+    }
+
+    public int getMaxAge() {
+        return maxAge;
+    }
+
+    public void setMaxAge(int maxAge) {
+        this.maxAge = maxAge;
+    }
+
+    public boolean isSexPreference() {
+        return sexPreference;
+    }
+
+    public void setSexPreference(boolean sexPreference) {
+        this.sexPreference = sexPreference;
+    }
+
+    public boolean isPublicProfile() {
+        return publicProfile;
+    }
+
+    public void setPublicProfile(boolean publicProfile) {
+        this.publicProfile = publicProfile;
     }
 }

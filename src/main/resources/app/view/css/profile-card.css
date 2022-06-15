@@ -1,0 +1,17 @@
+.card-pane {
+    -fx-min-height: 525;
+    -fx-max-width: 350;
+    -fx-font-size: 1.5em;
+    -fx-background-color: white;
+    -fx-border-radius: 40;
+    -fx-background-radius: 40;
+    -fx-effect: dropshadow(three-pass-box, #828282, 20, 0, 0, 0);
+}
+.label {
+    -fx-padding: 0 0 10 10;
+    -fx-wrap-text: true;
+}
+.name {
+    -fx-padding: 10 0 10 10;
+    -fx-font-size: 2em;
+}

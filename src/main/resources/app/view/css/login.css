@@ -12,7 +12,7 @@
     -fx-padding: 10 0 10 0;
     -fx-font-size: 1.2em;
 }
-.button {
+.loginButton {
     -fx-pref-width: 80;
     -fx-pref-height: 40;
     -fx-border-radius: 20;

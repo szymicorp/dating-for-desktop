@@ -5,17 +5,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.shape.Rectangle?>
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="app.view.controller.Cards"
-      stylesheets="@../css/cards.css, @../css/style.css">
-        <HBox alignment="CENTER">
-            <Button styleClass="profile, images"/>
-            <Text text="Dating for Desktop" styleClass="title"/>
-            <Button styleClass="matches, images"/>
-        </HBox>
-        <AnchorPane prefHeight="200" prefWidth="100" styleClass="anchor-pane">
-            <Rectangle fx:id="rect" height="200" width="100"/>
-        </AnchorPane>
-</VBox>
+<AnchorPane
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="app.view.controller.Cards"
+        stylesheets="@../css/cards.css, @../css/style.css"
+        styleClass="main-pane">
+    <HBox alignment="CENTER" minWidth="400">
+        <Button styleClass="profile, header-image"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Text text="Dating for Desktop" styleClass="title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button styleClass="matches, header-image"/>
+    </HBox>
+    <AnchorPane fx:id="anchorPane" AnchorPane.topAnchor="75" AnchorPane.leftAnchor="25"/>
+</AnchorPane>

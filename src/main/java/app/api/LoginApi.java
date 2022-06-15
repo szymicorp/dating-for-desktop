@@ -17,7 +17,7 @@ public class LoginApi extends Api {
                 .POST(HttpRequest.BodyPublishers.noBody())
                 .build();
 
-        return fetch(req);
+        return fetchAsync(req);
     }
 
     private String getBasicAuthenticationHeader(String username, String password) {
