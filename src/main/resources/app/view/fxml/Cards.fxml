@@ -16,7 +16,7 @@
         <Region HBox.hgrow="ALWAYS"/>
         <Text text="Dating for Desktop" styleClass="title"/>
         <Region HBox.hgrow="ALWAYS"/>
-        <Button styleClass="matches, header-image"/>
+        <Button onAction="#goToMatches" styleClass="matches, header-image"/>
     </HBox>
     <AnchorPane fx:id="anchorPane" AnchorPane.topAnchor="75" AnchorPane.leftAnchor="25"/>
 </AnchorPane>

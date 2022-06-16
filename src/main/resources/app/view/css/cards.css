@@ -1,14 +1,6 @@
 .title {
     -fx-font-size: 2em;
 }
-.header-image {
-    -fx-background-size: 50px;
-    -fx-background-position: center;
-    -fx-background-color: #f4f4f4;
-    -fx-background-repeat: no-repeat;
-    -fx-min-height: 50;
-    -fx-min-width: 50;
-}
 .profile {
     -fx-background-image: url('../images/settings.png');
 }

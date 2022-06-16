@@ -1,17 +1,20 @@
 package app.view.controller;
 
 import app.api.UserApi;
-import app.model.User;
+import app.view.StageManager;
+import app.view.View;
 import app.view.node.ProfileCard;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 @Controller
@@ -21,22 +24,28 @@ public class Cards implements Initializable {
 
     private final UserApi userApi;
 
-    private List<User> users;
+    private final StageManager stageManager;
 
-    @Autowired
-    public Cards(UserApi userApi) {
+    @Autowired @Lazy
+    public Cards(UserApi userApi, StageManager stageManager) {
         this.userApi = userApi;
+        this.stageManager = stageManager;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            users = userApi.getUnseenUsers();
-            var sublist = users;
-            if (users.size() > 9) {
-                sublist = sublist.subList(0, 9);
+        fetchUnseenUsers();
+        anchorPane.getChildren().addListener((ListChangeListener<Node>) c -> {
+            if (anchorPane.getChildren().size() == 0) {
+                fetchUnseenUsers();
             }
-            for (var user : sublist) {
+        });
+    }
+
+    private void fetchUnseenUsers() {
+        try {
+            var users = userApi.getUnseenUsers();
+            for (var user : users) {
                 var profileCard = new ProfileCard(
                         user,
                         card -> anchorPane.getChildren().remove(card),
@@ -48,5 +57,9 @@ public class Cards implements Initializable {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void goToMatches() {
+        stageManager.changeView(View.MATCHES);
     }
 }

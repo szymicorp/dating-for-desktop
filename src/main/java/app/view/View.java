@@ -2,7 +2,8 @@ package app.view;
 
 public enum View {
     LOGIN("Log in", "Login"),
-    CARDS("Browse people", "Cards");
+    CARDS("Browse people", "Cards"),
+    MATCHES("Your matches", "Matches");
 
     private final String title;
     private final String fxml;

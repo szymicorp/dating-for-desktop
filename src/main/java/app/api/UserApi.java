@@ -22,9 +22,10 @@ public class UserApi extends Api {
         return fetchAsync(req, User.class);
     }
 
-    public CompletableFuture<List<Match>> getUserMatches(int id) {
+    public CompletableFuture<List<Match>> getUserMatches() {
         var req = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint() + id + "matches/"))
+                .header("Cookie", getAuthCookie())
+                .uri(URI.create(endpoint() + "matches/"))
                 .GET()
                 .build();
 

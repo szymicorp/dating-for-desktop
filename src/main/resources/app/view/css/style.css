@@ -4,3 +4,11 @@
     -fx-padding: 0 0 10 0;
     -fx-alignment: center;
 }
+.header-image {
+    -fx-background-size: 50px;
+    -fx-background-position: center;
+    -fx-background-color: #f4f4f4;
+    -fx-background-repeat: no-repeat;
+    -fx-min-height: 50;
+    -fx-min-width: 50;
+}

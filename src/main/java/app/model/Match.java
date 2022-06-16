@@ -11,8 +11,7 @@ import java.util.List;
 
 public class Match {
     private long id;
-    private User user1;
-    private User user2;
+    private User user;
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
@@ -27,20 +26,12 @@ public class Match {
         this.id = id;
     }
 
-    public User getUser1() {
-        return user1;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser1(User user1) {
-        this.user1 = user1;
-    }
-
-    public User getUser2() {
-        return user2;
-    }
-
-    public void setUser2(User user2) {
-        this.user2 = user2;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public LocalDateTime getCreatedAt() {
