@@ -9,7 +9,7 @@
         xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
         fx:controller="app.view.controller.Matches"
-        stylesheets="@../css/match-list.css, @../css/style.css"
+        stylesheets="@../css/style.css"
         styleClass="main-pane">
     <HBox styleClass="header">
         <Button onAction="#back" styleClass="go-back, header-image"/>

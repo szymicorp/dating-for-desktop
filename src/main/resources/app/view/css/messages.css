@@ -1,0 +1,12 @@
+.message-input {
+    -fx-padding: 5 5 0 5;
+}
+.user-message {
+    -fx-alignment: center-right;
+}
+.match-message {
+    -fx-alignment: center-left;
+}
+.message-view {
+    -fx-font-size: 1.5em;
+}

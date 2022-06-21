@@ -3,8 +3,8 @@ package app.model;
 public class Message {
     private long id;
     private String content;
-    private long senderId;
-    private long receiverId;
+    private String senderUsername;
+    private String receiverUsername;
 
     public long getId() {
         return id;
@@ -22,19 +22,19 @@ public class Message {
         this.content = content;
     }
 
-    public long getSenderId() {
-        return senderId;
+    public String getSenderUsername() {
+        return senderUsername;
     }
 
-    public void setSenderId(long senderId) {
-        this.senderId = senderId;
+    public void setSenderUsername(String senderUsername) {
+        this.senderUsername = senderUsername;
     }
 
-    public long getReceiverId() {
-        return receiverId;
+    public String getReceiverUsername() {
+        return receiverUsername;
     }
 
-    public void setReceiverId(long receiverId) {
-        this.receiverId = receiverId;
+    public void setReceiverUsername(String receiverUsername) {
+        this.receiverUsername = receiverUsername;
     }
 }

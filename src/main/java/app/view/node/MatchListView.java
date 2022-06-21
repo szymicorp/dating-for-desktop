@@ -8,7 +8,11 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.util.Callback;
 
+import java.util.function.Consumer;
+
 public class MatchListView extends ListView<Match> {
+    private Consumer<Match> cellAction;
+
     public MatchListView() {
         this.setCellFactory(new Callback<>() {
             @Override
@@ -24,10 +28,15 @@ public class MatchListView extends ListView<Match> {
                             this.setGraphicTextGap(20);
                             circle.setFill(new ImagePattern(new Image(user.getPhotos().get(0))));
                             this.setGraphic(circle);
+                            this.setOnMouseClicked(event -> cellAction.accept(match));
                         }
                     }
                 };
             }
         });
+    }
+
+    public void setCellAction(Consumer<Match> cellAction) {
+        this.cellAction = cellAction;
     }
 }

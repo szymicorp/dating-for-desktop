@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Button?>
+<?import app.view.node.MessageListView?>
+<?import javafx.scene.control.TextField?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="app.view.controller.Messages"
+      stylesheets="@../css/messages.css, @../css/style.css"
+      styleClass="main-pane">
+    <HBox styleClass="header">
+        <Button onAction="#back" styleClass="go-back, header-image"/>
+    </HBox>
+    <MessageListView fx:id="messageList" styleClass="message-view" VBox.vgrow="ALWAYS"/>
+    <HBox styleClass="message-input">
+        <TextField fx:id="textField" HBox.hgrow="ALWAYS"/>
+        <Button onAction="#send" text="Send"/>
+    </HBox>
+</VBox>

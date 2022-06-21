@@ -3,6 +3,7 @@ package app.view.controller;
 import app.api.Api;
 import app.api.LoginApi;
 import app.view.StageManager;
+import app.view.State;
 import app.view.View;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
@@ -39,14 +40,17 @@ public class Login implements Initializable {
 
     PauseTransition visiblePause;
 
-    private LoginApi loginApi;
+    private final LoginApi loginApi;
 
-    private StageManager stageManager;
+    private final StageManager stageManager;
+
+    private final State state;
 
     @Autowired @Lazy
-    public Login(LoginApi loginApi, StageManager stageManager) {
+    public Login(LoginApi loginApi, StageManager stageManager, State state) {
         this.loginApi = loginApi;
         this.stageManager = stageManager;
+        this.state = state;
         visiblePause = new PauseTransition(
                 Duration.seconds(5)
         );
@@ -84,6 +88,7 @@ public class Login implements Initializable {
     private void handleCookie(List<String> cookies) {
         if (cookies != null && cookies.size() > 0) {
             Api.setAuthCookie(cookies.get(0));
+            state.setUsername(username.getText());
             stageManager.changeView(View.CARDS);
         } else {
             showMessage();

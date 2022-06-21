@@ -12,3 +12,9 @@
     -fx-min-height: 50;
     -fx-min-width: 50;
 }
+.header {
+    -fx-padding: 5;
+}
+.go-back {
+    -fx-background-image: url('../images/back.png');
+}
